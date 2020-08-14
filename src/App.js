@@ -17,13 +17,15 @@ import EchartsForReactFrame from './components/EchartsForReactFrame'
 import ChartjsExample1 from './components/chartJs/ChartjsExample1'
 import ChartjsExample2WithZoom from './components/chartJs/ChartjsExample2WithZoom'
 import ChartjsExample3DragAndDrop from './components/chartJs/ChartjsExample3DragAndDrop'
+import ChartjsExample4WithZoomAndTimeLine from './components/chartJs/ChartjsExample4WithZoomAndTimeLine'
 
 
 function App() {
 
 
   return (
-    <>
+    <> 
+    <div style={{ width: "1100px"}}>
         {/* <JsChartingFram />
         <ReactTimeLineGanttFram />
         <EchartsForReactFrame /> */}
@@ -47,6 +49,8 @@ function App() {
         {/* <ChartjsExample2WithZoom /> */}
         {/* <ChartjsExample1 /> */}
         <ChartjsExample3DragAndDrop />
+        {/* <ChartjsExample4WithZoomAndTimeLine /> */}
+        </div>
     </>
   );
 }

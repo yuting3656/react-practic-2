@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import {Line, Chart} from 'react-chartjs-2'
+import React, { useState, useEffect} from 'react'
+import {Line } from 'react-chartjs-2'
 
-const ChartjsExample1 = () => {
+
+const ChartjsExample4WithZoomAndTimeLine = () => {
     const [ chartData, setChartData ] = useState({})
 
     const chart = () => {
@@ -64,15 +65,15 @@ const ChartjsExample1 = () => {
     useEffect(() => {
         chart()
     }, [])
-    
     return (
-        <div style={{ height: "500px", width: "500px"}}>
-            <Line 
+        <div>
+             <Line 
                data={chartData}
                options={{
                    legend: {
                      display: false, // show bar 在 top
                    },
+
                   scales: {
                     xAxes: [{
                         type: 'time',
@@ -97,6 +98,7 @@ const ChartjsExample1 = () => {
                         }
                     ]
                  },
+
                  tooltips: {
                      callbacks: {
                          // https://www.chartjs.org/docs/latest/configuration/tooltip.html
@@ -127,4 +129,4 @@ const ChartjsExample1 = () => {
     )
 }
 
-export default ChartjsExample1
+export default ChartjsExample4WithZoomAndTimeLine
