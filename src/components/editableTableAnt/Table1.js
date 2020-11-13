@@ -1,24 +1,30 @@
 import React, {
     useState
 } from 'react'
-import { Table, Input, InputNumber, Popconfirm, Form, DatePicker } from 'antd';
-import { resolveOnChange } from 'antd/lib/input/Input';
+import { 
+    Table, 
+    Input, 
+    InputNumber, 
+    Popconfirm, 
+    Form, 
+    DatePicker,
+    Button,
+} from 'antd';
+
+import moment from 'moment';
 
 //
 // IMPORT ZONE
 //
 
-const originData = [];
-
-for (let i = 0; i < 100; i++) {
-  originData.push({
-    key: i.toString(),
-    name: `Edrward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
+const originData = [{
+    key: 1,
+    name: `Edrward `,
+    age: 1,
+    address: `London Park no.`,
     estimatedTime: ''
-  });
-}
+}];
+
 
 
 const EditableCell = ( {
@@ -100,6 +106,15 @@ const Table1 = () => {
             console.log('Validate Failed: ', errInfo)
         }
     };
+
+    const handleDelete = (key) => {
+        const newData = [...data];
+        const index = newData.findIndex((item) => key === item.key);
+        console.log(index)
+        newData.splice(index, 1)
+        const t  =  newData.map((data, index) => Object.assign({}, { ...data, age: index + 1}) )
+        setData(t)
+    }
     const columns = [
         { 
             title: 'name',
@@ -111,7 +126,6 @@ const Table1 = () => {
             title: 'age',
             dataIndex: 'age',
             width: '15%',
-            editable: true,
         },
         {
             title: 'address',
@@ -124,9 +138,9 @@ const Table1 = () => {
             dataIndex: 'estimatedTime',
             width: '20%',
             editable: true,
-            render: (record) => {
-               {new Date(record)}
-            }
+            render: (record) => 
+              <> {moment(record).format('YYYY/MM/DD HH:mm:ss')} </>
+            
         },
         {
             title: 'operation',
@@ -146,13 +160,22 @@ const Table1 = () => {
                             <a>Cancel</a>
                           </Popconfirm>
                     </span>
-                ) : ( 
+                ) : (
+                    <> 
                     <a
                       disabled={editingKey !== ''}
                       onClick={() => edit(record)}
                      >
                          Edit
                     </a>
+                    <br/>
+                    <Popconfirm title="Sure to cancel?" onConfirm={() => handleDelete(record.key)}>
+                    <a
+                     >
+                         Delete
+                    </a>
+                    </Popconfirm>
+                    </>
                 )
             }
         }
@@ -174,8 +197,23 @@ const Table1 = () => {
         }
     })
 
+    const addButton = () => {
+        const newData = [ ...data]
+        newData.push({ 
+                key: newData.length + 1,
+                name: ``,
+                age: newData.length + 1,
+                address: ``,
+                estimatedTime: ''
+            }
+        )
+        setData(newData)
+    }
+
 
     return (
+        <>
+        <Button onClick={() => addButton()}> Add </Button>
         <Form form={form} component={false}>
         <Table
           components={{
@@ -192,6 +230,7 @@ const Table1 = () => {
           }}
         />
       </Form>
+      </>
     )
 }
 
