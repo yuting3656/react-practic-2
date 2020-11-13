@@ -25,6 +25,12 @@ import ChartjsExample4WithZoomAndTimeLine from './components/chartJs/ChartjsExam
 // fullcalendar
 import FullcalendarEx1 from './components/fullcalendarExample/FullcalendarEx1'
 
+// jsGantt
+import JsGanttExample1 from './components/jsGanttExample/JsGanttExample1'
+
+// table
+import Table1  from './components/editableTableAnt/Table1'
+
 
 function App() {
 
@@ -33,8 +39,8 @@ function App() {
     <> 
     <div style={{ width: "1100px"}}>
         {/* <JsChartingFram />
-        <ReactTimeLineGanttFram />
         <EchartsForReactFrame /> */}
+        {/* <ReactTimeLineGanttFram /> */}
 
         {/* D3 */}
         {/* <D3ChartFrame /> */}
@@ -61,7 +67,13 @@ function App() {
         {/* <FullcalendarEx1 /> */}
 
         {/* CSV */}
-        < ReactExportExcelFrame />
+        {/* < ReactExportExcelFrame /> */}
+
+        {/* JsGantt */}
+        {/* <JsGanttExample1 />
+        
+        {/* Table */}
+        <Table1 />
         </div>
     </>
   );
