@@ -16,6 +16,7 @@
     "dhtmlx-gantt": "^7.0.8",
     "echarts": "^4.8.0",
     "echarts-for-react": "^2.0.16",
+    "frappe-gantt-react": "^0.2.2",
     "highcharts": "^8.1.2",
     "highcharts-react-official": "^3.0.0",
     "interactjs": "^1.9.20",
@@ -28,6 +29,7 @@
     "react-dom": "^16.13.1",
     "react-export-excel": "^0.5.3",
     "react-gantt-timeline": "^0.4.3",
+    "react-jsgantt": "^2.4.3",
     "react-scripts": "3.4.1"
   },
   "scripts": {

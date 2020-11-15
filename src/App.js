@@ -25,6 +25,9 @@ import ChartjsExample4WithZoomAndTimeLine from './components/chartJs/ChartjsExam
 // fullcalendar
 import FullcalendarEx1 from './components/fullcalendarExample/FullcalendarEx1'
 
+// jsFantt
+import JsGanttExample1 from './components/jsGanttExamples/JsGanttExample1'
+
 
 function App() {
 
@@ -61,7 +64,10 @@ function App() {
         {/* <FullcalendarEx1 /> */}
 
         {/* CSV */}
-        < ReactExportExcelFrame />
+        {/* <ReactExportExcelFrame /> */}
+
+        {/*jsGantt*/}
+        <JsGanttExample1 />
         </div>
     </>
   );
