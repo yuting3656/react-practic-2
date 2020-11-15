@@ -9,6 +9,7 @@ import {
     Form, 
     DatePicker,
     Button,
+    AutoComplete
 } from 'antd';
 
 import moment from 'moment';
@@ -22,6 +23,7 @@ const originData = [{
     name: `Edrward `,
     age: 1,
     address: `London Park no.`,
+    device: 'MC-30',
     estimatedTime: ''
 }];
 
@@ -37,11 +39,29 @@ const EditableCell = ( {
     children,
     ...restProps
 }) => {
-    console.log( 'inputType: ',inputType)
-    console.log('restProps:', restProps)
-    console.log('children:', children)
+    // console.log( 'inputType: ',inputType)
+    // console.log('restProps:', restProps)
+    // console.log('children:', children)
     console.log('=======================',)
-    const inputNode = inputType === 'date' ? <DatePicker /> : <Input />;
+    let inputNode;
+    switch(inputType) {
+        case "date":
+            inputNode = <DatePicker />
+            break;
+        case "autoDevice":
+            inputNode = <AutoComplete 
+                options={[
+  { value: ['Burns Bay Road', 'uuid'] },
+  { value: ['Downing Street', 'uuid']  },
+  { value: ['Wall Street', 'uuid']  },
+]}
+            />
+            break;
+        default:
+            inputNode = <Input />
+            break;
+            
+    }
     return (
         <td {...restProps}>
             {editing ? (
@@ -88,7 +108,7 @@ const Table1 = () => {
         try {
             const row = await form.validateFields();
             const d = row.estimatedTime
-            
+            console.log( "row", row)
             const newData = [...data];
             const index = newData.findIndex((item) => key === item.key);
 
@@ -133,6 +153,12 @@ const Table1 = () => {
             width: '40%',
             editable: true,
         },
+        {
+            title: 'Device',
+            dataIndex: 'device',
+            width: '40%',
+            editable: true,
+        },
         { 
             title: 'estimatedTime',
             dataIndex: 'estimatedTime',
@@ -162,19 +188,23 @@ const Table1 = () => {
                     </span>
                 ) : (
                     <> 
-                    <a
-                      disabled={editingKey !== ''}
-                      onClick={() => edit(record)}
-                     >
-                         Edit
-                    </a>
-                    <br/>
-                    <Popconfirm title="Sure to cancel?" onConfirm={() => handleDelete(record.key)}>
-                    <a
-                     >
-                         Delete
-                    </a>
-                    </Popconfirm>
+                    { record.age === 1 ? <> 不可編輯 </> :
+                    <>
+                      <a
+                        disabled={editingKey !== ''}
+                        onClick={() => edit(record)}
+                       >
+                           Edit
+                      </a> 
+                      <br/>
+                      <Popconfirm title="Sure to cancel?" onConfirm={() => handleDelete(record.key)}>
+                      <a
+                       >
+                           Delete
+                      </a>
+                      </Popconfirm> 
+                    </>
+                    }
                     </>
                 )
             }
@@ -185,11 +215,25 @@ const Table1 = () => {
         if (!col.editable){
             return col;
         }
+
+        let inputTypeStr ;
+        switch (col.dataIndex) {
+            case 'estimatedTime':
+                inputTypeStr = 'date';
+                break;
+            case 'device':
+                inputTypeStr = 'autoDevice';
+                break;
+            default: 
+                inputTypeStr = 'text';
+                break;
+        }
+
         return { 
             ...col,
             onCell: (record) => ({
                 record,
-                inputType: col.dataIndex === 'estimatedTime' ? 'date': 'text',
+                inputType: inputTypeStr,
                 dataIndex: col.dataIndex,
                 title: col.title,
                 editing: isEditing(record),

@@ -17,11 +17,7 @@
     "dhtmlx-gantt": "^7.0.8",
     "echarts": "^4.8.0",
     "echarts-for-react": "^2.0.16",
-<<<<<<< HEAD
-    "frappe-gantt-react": "^0.2.2",
-=======
     "gantt-elastic": "^1.0.12",
->>>>>>> e6a7e074f56f51008bde88c30b69ca235a61ab82
     "highcharts": "^8.1.2",
     "highcharts-react-official": "^3.0.0",
     "interactjs": "^1.9.20",
