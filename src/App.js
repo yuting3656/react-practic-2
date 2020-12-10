@@ -31,6 +31,9 @@ import JsGanttExample1 from './components/jsGanttExample/JsGanttExample1'
 // table
 import Table1  from './components/editableTableAnt/Table1'
 
+// stt
+import SpeechToText01 from './components/speechToText/SpeechToText01'
+
 
 function App() {
 
@@ -73,7 +76,10 @@ function App() {
         {/* <JsGanttExample1 />
         
         {/* Table */}
-        <Table1 />
+        {/* <Table1 /> */}
+
+        {/* SpeechToText */}
+        <SpeechToText01 />
         </div>
     </>
   );
