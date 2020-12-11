@@ -34,6 +34,9 @@ import Table1  from './components/editableTableAnt/Table1'
 // stt
 import SpeechToText01 from './components/speechToText/SpeechToText01'
 
+// vsjs
+import VsjsExample01 from './components/vsjsExample/VsjsExample01'
+
 
 function App() {
 
@@ -79,7 +82,10 @@ function App() {
         {/* <Table1 /> */}
 
         {/* SpeechToText */}
-        <SpeechToText01 />
+        {/* <SpeechToText01 /> */}
+
+        {/* vsjs */}
+        <VsjsExample01 />
         </div>
     </>
   );
