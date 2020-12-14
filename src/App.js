@@ -52,7 +52,8 @@ function App() {
         {/* <D3ChartFrame /> */}
         {/* <D3GantChartExample /> */}
 
-        {/* <TimeLineFrame /> */}
+        {/* React Calendar Timeline */}
+        <TimeLineFrame />
         {/* <ReactExportExcelFrame /> */}
         {/* <ReactCsvFrame /> */}
 

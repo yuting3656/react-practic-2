@@ -1,25 +1,32 @@
 import React, {
-    useEffect
+    useEffect,
+    useState,
 }from 'react'
+
 // import {XYPlot, XAxis, YAxis, HorizontalGridLines, LineSeries} from 'react-vis';
 // import { Timeline } from 'vis-timeline/standalone'
 
 import Timeline from 'react-visjs-timeline'
 
+//
+// IMPORT ZONE
+//
 
 
 const VsjsExample01 = () => {
     const min = new Date(2020, 3, 1); // 1 april
     const max = new Date(2023, 3, 30, 23, 59, 59); // 30 april
 
+    const [ mockData, setMockData ] = useState([ new Date(2020, 5, 1), new Date(2020, 7, 1)  ])
 
     const options = {
         selectable: true,
         editable: true,
+        stack: false,
         itemsAlwaysDraggable: {
             item: true,
             range: true,
-          },
+        },
         width: '100%',
         height: '600px',
         // stack: true,
@@ -63,11 +70,17 @@ const VsjsExample01 = () => {
     }
 
     const items = [ 
-    {    id: 1,
-        start: new Date(2020, 12, 10),
-        end: new Date(2021, 8, 11),
+    {    
+        id: 1,
+        start: mockData[0],
+        end: mockData[1],
         content: "A",
-        editable: true,
+        editable: {
+            remove: true,
+            updateGroup: true,
+            updateTime: true,
+        },
+        selectable: true,
         group: 1
 
     }, 
@@ -75,7 +88,12 @@ const VsjsExample01 = () => {
         start: new Date(2021, 12, 11),
         end: new Date(2022, 12, 12),
         content: "B",
-        editable: true,
+        editable: {
+            remove: true,
+            updateGroup: true,
+            updateTime: true,
+        },
+        selectable: true,
         group: 2,
         style: "color: balck; background-color: red;"
 
@@ -84,14 +102,20 @@ const VsjsExample01 = () => {
         start: new Date(2019, 8, 12),
         end: new Date(2019, 12, 13),
         content: "C",
-        editable: true,
+        editable: {
+            remove: true,
+            updateGroup: true,
+            updateTime: true,
+        },
+        selectable: true,
         group: 1,
     }, 
 ] 
 
 const groups = [ 
     { id:1, content: 'group A'}, 
-{ id:2, content: 'group B'},  ]
+    { id:2, content: 'group B'},  
+]
 
     return (
         <div style={{ padding: '20px'}}>
@@ -101,6 +125,8 @@ const groups = [
             groups={groups}
             clickHandler={(props, item) => {
                 console.log("clickHandler: ", props)
+                // setMockData([ new Date(2022, 5, 1),new Date(2022, 7, 1)  ] )
+                console.log("clicked: ", props.items)
             }}
             rangechangeHandler={(props, item)=> {
                 console.log("rangechangeHandler: ", props)
