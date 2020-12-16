@@ -19,7 +19,7 @@ const TimeLineFrame = () => {
         canMove: true,
         itemProps: {
           style:{
-              background: "red"
+              background: "#F1A709"
           }
         }
       },

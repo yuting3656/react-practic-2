@@ -1,8 +1,16 @@
 import React from 'react';
 import './App.css';
 
+import {
+  Row,
+  Col,
+  Card
+} from 'antd'
+
 import JsChartingFram from './components/JsChartingFram'
 import ReactTimeLineGanttFram from './components/ReactTimeLineGanttFram'
+// react schedule timeline
+import ReactScheduleTimeline01 from './components/reactScheduleTimeline/ReactScheduleTimeline01'
 import TimeLineFrame from './components/TimeLineFrame'
 
 // CSV
@@ -43,7 +51,12 @@ function App() {
 
   return (
     <> 
-    <div style={{ width: "1100px"}}>
+    <Row gutter={[8, 8]}>
+      <Col spen={24}>
+      <Card 
+         title="人一定要靠自己 你是醫生！"
+        >
+          
         {/* <JsChartingFram />
         <EchartsForReactFrame /> */}
         {/* <ReactTimeLineGanttFram /> */}
@@ -53,7 +66,9 @@ function App() {
         {/* <D3GantChartExample /> */}
 
         {/* React Calendar Timeline */}
-        <TimeLineFrame />
+        {/* <TimeLineFrame /> */}
+        <ReactScheduleTimeline01 />
+
         {/* <ReactExportExcelFrame /> */}
         {/* <ReactCsvFrame /> */}
 
@@ -86,8 +101,10 @@ function App() {
         {/* <SpeechToText01 /> */}
 
         {/* vsjs */}
-        <VsjsExample01 />
-        </div>
+        {/* <VsjsExample01 /> */}
+        </Card>
+      </Col>
+        </Row>
     </>
   );
 }
