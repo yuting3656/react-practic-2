@@ -45,6 +45,9 @@ import SpeechToText01 from './components/speechToText/SpeechToText01'
 // vsjs
 import VsjsExample01 from './components/vsjsExample/VsjsExample01'
 
+// jexcel
+import JexcelExample01 from './components/jexcelExample/JexcelExample01'
+
 
 function App() {
 
@@ -67,7 +70,7 @@ function App() {
 
         {/* React Calendar Timeline */}
         {/* <TimeLineFrame /> */}
-        <ReactScheduleTimeline01 />
+        {/* <ReactScheduleTimeline01 /> */}
 
         {/* <ReactExportExcelFrame /> */}
         {/* <ReactCsvFrame /> */}
@@ -95,13 +98,16 @@ function App() {
         {/* <JsGanttExample1 />
         
         {/* Table */}
-        {/* <Table1 /> */}
+        <Table1 />
 
         {/* SpeechToText */}
         {/* <SpeechToText01 /> */}
 
         {/* vsjs */}
         {/* <VsjsExample01 /> */}
+
+        {/* jexcel */}
+        {/* <JexcelExample01 /> */}
         </Card>
       </Col>
         </Row>
